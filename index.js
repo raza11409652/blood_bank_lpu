@@ -20,9 +20,9 @@ const escapeRegExp = (string) => {
 };
 
 app.use(morgan('dev'));
-
+const dbUrl = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PWD}@backendmongo.wksoy.mongodb.net/${process.env.MONG_DB_DATABASE}?retryWrites=true&w=majority`
 mongoose.connect(
-  dburi,
+  dbUrl,
   { useNewUrlParser: true, useCreateIndex: true },
   (err) => {
     if (err) throw err;
